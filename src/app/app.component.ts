@@ -1,15 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-// import { DataBindingComponent } from './data-binding/data-binding.component';
-import { StructuralDirectiveComponent } from './structural-directives/structural-directive/structural-directive.component';
-import { AttributeDirectiveComponent } from './structural-directives/attribute-directive/attribute-directive.component';
 
 @Component({
   selector: 'app-root',
-  // imports: [RouterOutlet,DataBindingComponent,StructuralDirectiveComponent],
-  imports: [RouterOutlet, AttributeDirectiveComponent],
+  standalone: true,
+  imports: [RouterOutlet], // only import what is used in template
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+  styleUrls: ['./app.component.css'] // corrected property name
 })
 export class AppComponent {
   title = 'practice';
