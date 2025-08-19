@@ -1,0 +1,32 @@
+.bg-gradient-primary {
+  background: linear-gradient(90deg, #007bff, #00c6ff);
+}
+.bg-gradient-success {
+  background: linear-gradient(90deg, #28a745, #85e085);
+}
+.bg-gradient-warning {
+  background: linear-gradient(90deg, #ffc107, #ffdb70);
+}
+
+.custom-card {
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 30px;
+}
+
+.directive-box {
+  height: 70px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  box-shadow: inset 0px 0px 8px rgba(0, 0, 0, 0.2);
+}
+
+.text-gradient {
+  background: linear-gradient(90deg, #007bff, #28a745);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
