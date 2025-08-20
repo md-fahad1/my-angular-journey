@@ -1,0 +1,138 @@
+<div class="container mt-4">
+  <h3 class="mb-3">🔹 Angular Control Flow Examples</h3>
+  <p class="text-muted">Practicing real-world use cases with i f,  for, switch, etc.</p>
+
+  <div class="row g-4">
+
+    <!-- Example 1: Basic Show/Hide -->
+    <div class="col-4">
+      <h5>1. Show / Hide Div</h5>
+      @if(div1Visible){
+        <div class="p-3 text-center bg-primary text-white rounded">Visible Div</div>
+      }
+      <div class="mt-2">
+        <button class="btn btn-success btn-sm" (click)="ShowDiv()">Show</button>
+        <button class="btn btn-danger btn-sm" (click)="HideDiv()">Hide</button>
+      </div>
+    </div>
+
+    <!-- Example 2: Toggle -->
+    <div class="col-4">
+      <h5>2. Toggle Div</h5>
+      @if(div2Visible){
+        <div class="p-3 text-center bg-secondary text-white rounded">Toggle Div</div>
+      }@else{
+        <div class="p-3 text-center bg-warning text-dark rounded">Hidden Div</div>
+      }
+      <button class="btn btn-info btn-sm mt-2" (click)="ToggleDiv()">Toggle</button>
+    </div>
+
+    <!-- Example 3: Show Name / Age -->
+    <div class="col-4">
+      <h5>3. Student Info</h5>
+      @if(show === 'name'){
+        <ul class="list-group">
+          @for(stu of studentList; track $index){
+            <li class="list-group-item">{{stu.name}}</li>
+          }
+        </ul>
+      }@else{
+        <ul class="list-group">
+          @for(stu of studentList; track $index){
+            <li class="list-group-item">{{stu.age}}</li>
+          }
+        </ul>
+      }
+      <div class="mt-2">
+        <button class="btn btn-outline-primary btn-sm" (click)="showName()">Show Names</button>
+        <button class="btn btn-outline-success btn-sm" (click)="showAge()">Show Ages</button>
+      </div>
+    </div>
+
+    <!-- Example 4: Switch Case -->
+    <div class="col-4">
+      <h5>4. Order Status</h5>
+      @switch(orderStatus){
+        @case("pending") { <span class="badge bg-warning">Pending</span> }
+        @case("processing") { <span class="badge bg-info">Processing</span> }
+        @case("shipped") { <span class="badge bg-primary">Shipped</span> }
+        @case("delivered") { <span class="badge bg-success">Delivered</span> }
+        @default { <span class="badge bg-secondary">Unknown</span> }
+      }
+    </div>
+
+    <!-- Example 5: Logged In -->
+    <div class="col-4">
+      <h5>5. User Login</h5>
+      @if(isLoggedIn){
+        <p>Welcome back, <b>{{user.name}}</b> ({{user.role}})</p>
+      }@else{
+        <p>Please <a href="#">Login</a> to continue</p>
+      }
+    </div>
+
+    <!-- Example 6: Shopping Cart -->
+    <div class="col-4">
+      <h5>6. Cart Items</h5>
+      @for(item of cartItems; track $index){
+        <div class="border p-2 rounded mb-1">
+          {{item.name}} - ${{item.price}} x {{item.qty}}
+        </div>
+      }
+      <button class="btn btn-primary btn-sm mt-2" (click)="checkout()">Checkout</button>
+    </div>
+
+    <!-- Example 7: Notifications -->
+    <div class="col-4">
+      <h5>7. Notifications</h5>
+      @if(notifications.length > 0){
+        <ul class="list-group">
+          @for(n of notifications; track $index){
+            <li class="list-group-item">{{n}}</li>
+          }
+        </ul>
+      }@else{
+        <p>No new notifications 🎉</p>
+      }
+    </div>
+
+    <!-- Example 8: Nested Conditions -->
+    <div class="col-4">
+      <h5>8. Weather</h5>
+      @if(weather.temp > 30){
+        <p>☀️ Hot ({{weather.temp}}°C)</p>
+      }@else if(weather.temp > 20){
+        <p>🌤 Pleasant ({{weather.temp}}°C)</p>
+      }@else{
+        <p>❄️ Cold ({{weather.temp}}°C)</p>
+      }
+    </div>
+
+    <!-- Example 9: Empty Task List -->
+    <div class="col-4">
+      <h5>9. Task List</h5>
+      @if(tasks.length === 0){
+        <p>No tasks available 📌</p>
+      }@else{
+        <ul>
+          @for(t of tasks; track $index){
+            <li>{{t}}</li>
+          }
+        </ul>
+      }
+    </div>
+
+    <!-- Example 10: Role-Based Access -->
+    <div class="col-4">
+      <h5>10. Access Control</h5>
+      @if(role === "Admin"){
+        <p class="text-success">You have full access 🔑</p>
+      }@else if(role === "User"){
+        <p class="text-info">You have limited access 📋</p>
+      }@else{
+        <p class="text-danger">Guest access only ❌</p>
+      }
+    </div>
+
+  </div>
+</div>

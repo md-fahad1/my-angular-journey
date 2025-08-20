@@ -1,23 +1,26 @@
 <!-- <app-data-binding></app-data-binding> -->
  <!-- <app-structural-directive></app-structural-directive> -->
   <!-- <app-attribute-directive></app-attribute-directive> -->
-   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+ <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+    <a class="navbar-brand" routerLink="/">Logo</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="mynavbar">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Link</a>
+          <a class="nav-link" routerLink="/data-binding" routerLinkActive="active">Data Binding</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Link</a>
+          <a class="nav-link" routerLink="/structural-directive" routerLinkActive="active">Directive</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="javascript:void(0)">Link</a>
+          <a class="nav-link" routerLink="/attribute-directive" routerLinkActive="active">Attribute Directive</a>
         </li>
+             <li class="nav-item">
+          <a class="nav-link" routerLink="/control-flow" routerLinkActive="active">Control Flow</a>
+        </li> 
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="text" placeholder="Search">
@@ -26,7 +29,7 @@
     </div>
   </div>
 </nav>
-<div class="container">
-<router-outlet></router-outlet>
-</div>
 
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>

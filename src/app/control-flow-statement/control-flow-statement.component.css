@@ -1,0 +1,9 @@
+.card {
+  border-radius: 12px;
+}
+.card-header {
+  font-weight: 600;
+}
+p.small {
+  font-size: 0.8rem;
+}
