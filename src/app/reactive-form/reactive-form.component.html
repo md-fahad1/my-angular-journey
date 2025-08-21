@@ -1,0 +1,144 @@
+<div class="container py-5">
+  <h2 class="text-center text-gradient mb-4">📝 Angular Reactive Form Example</h2>
+
+  <!-- NOTE CARD -->
+  <div class="alert alert-info">
+    <h6 class="fw-bold">📌 Learning Notes:</h6>
+    <ul class="mb-0 small">
+      <li>✅ <b>formGroup</b> binds the entire form in TS.</li>
+      <li>✅ <b>formControlName</b> binds each field.</li>
+      <li>✅ <b>Validators</b> are set inside TS (not in template).</li>
+      <li>✅ <b>*ngIf</b> shows validation messages in UI.</li>
+      <li>✅ <b>[disabled]="studentForm.invalid"</b> disables button until valid.</li>
+    </ul>
+  </div>
+
+  <div class="card shadow-lg p-4">
+    <form class="row g-3" [formGroup]="studentForm" (ngSubmit)="onSave()">
+
+      <!-- First Name -->
+      <div class="col-md-6">
+        <label class="form-label">First Name</label>
+        <input type="text" class="form-control" formControlName="firstName" placeholder="Enter first name" />
+        <div class="text-danger small mt-1">
+          <span *ngIf="studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['required']">
+            First Name is required
+          </span>
+          <span *ngIf="studentForm.controls['firstName'].touched && studentForm.controls['firstName'].errors?.['minlength']">
+            Minimum 4 characters required
+          </span>
+        </div>
+      </div>
+
+      <!-- Last Name -->
+      <div class="col-md-6">
+        <label class="form-label">Last Name</label>
+        <input type="text" class="form-control" formControlName="lastName" placeholder="Enter last name" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['lastName'].touched && studentForm.controls['lastName'].invalid">
+          Last Name is required
+        </div>
+      </div>
+
+      <!-- Username -->
+      <div class="col-md-6">
+        <label class="form-label">Username</label>
+        <input type="text" class="form-control" formControlName="userName" placeholder="Enter username" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['userName'].touched && studentForm.controls['userName'].invalid">
+          Username must be at least 5 characters
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="col-md-6">
+        <label class="form-label">Password</label>
+        <input type="password" class="form-control" formControlName="password" placeholder="Enter password" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['password'].touched && studentForm.controls['password'].invalid">
+          Password must be at least 6 characters
+        </div>
+      </div>
+
+      <!-- Email -->
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input type="email" class="form-control" formControlName="email" placeholder="Enter email" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['email'].touched && studentForm.controls['email'].invalid">
+          Enter a valid email
+        </div>
+      </div>
+
+      <!-- Phone -->
+      <div class="col-md-6">
+        <label class="form-label">Phone</label>
+        <input type="text" class="form-control" formControlName="phone" placeholder="10 digit phone" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['phone'].touched && studentForm.controls['phone'].invalid">
+          Phone must be 10 digits
+        </div>
+      </div>
+
+      <!-- Gender (Radio Buttons) -->
+      <div class="col-md-6">
+        <label class="form-label d-block">Gender</label>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="gender" value="Male" />
+          <label class="form-check-label">Male</label>
+        </div>
+        <div class="form-check form-check-inline">
+          <input type="radio" class="form-check-input" formControlName="gender" value="Female" />
+          <label class="form-check-label">Female</label>
+        </div>
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['gender'].touched && studentForm.controls['gender'].invalid">
+          Select gender
+        </div>
+      </div>
+
+      <!-- Date of Birth -->
+      <div class="col-md-6">
+        <label class="form-label">Date of Birth</label>
+        <input type="date" class="form-control" formControlName="dob" />
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['dob'].touched && studentForm.controls['dob'].invalid">
+          Date of Birth required
+        </div>
+      </div>
+
+      <!-- Country (Select) -->
+      <div class="col-md-6">
+        <label class="form-label">Country</label>
+        <select class="form-select" formControlName="country">
+          <option value="" disabled selected>Select country</option>
+          <option>Bangladesh</option>
+          <option>India</option>
+          <option>USA</option>
+        </select>
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['country'].touched && studentForm.controls['country'].invalid">
+          Country required
+        </div>
+      </div>
+
+      <!-- Terms & Conditions -->
+      <div class="col-12">
+        <div class="form-check">
+          <input type="checkbox" class="form-check-input" formControlName="isTerm" />
+          <label class="form-check-label">Agree to terms & conditions</label>
+        </div>
+        <div class="text-danger small mt-1" *ngIf="studentForm.controls['isTerm'].touched && studentForm.controls['isTerm'].invalid">
+          You must agree before submitting
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12">
+        <button class="btn btn-gradient w-100" type="submit" [disabled]="studentForm.invalid">
+          🚀 Submit Form
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Live Preview -->
+  <div class="card mt-4 shadow-sm">
+    <div class="card-header bg-dark text-white">📊 Live Form Data</div>
+    <div class="card-body">
+      <pre>{{ studentForm.value | json }}</pre>
+    </div>
+  </div>
+</div>
