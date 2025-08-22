@@ -1,22 +1,36 @@
-<div class="container my-5">
-  <div class="row g-4">
+<div class="container py-3">
+  <!-- PAGE HEADING -->
+  <h2 class="text-center text-dark mb-4">📝 Angular Data Binding Example</h2>
 
+  <!-- NOTE SECTION -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="alert alert-secondary text-dark shadow-sm">
+        <h5>Note:</h5>
+        <p>
+          This page demonstrates different Angular data binding techniques including Interpolation, 
+          Property Binding, Event Binding, and Two-way Binding. Each card below explains a concept 
+          and provides examples you can interact with.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXAMPLES ROW -->
+  <div class="row g-4">
     <!-- INTERPOLATION -->
     <div class="col-md-6 col-lg-3">
       <div class="card border-primary shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h4 class="card-title text-primary">🔹 Interpolation</h4>
           <div class="alert alert-info small">
             Interpolation <code></code> displays TS variables in HTML.
           </div>
-
           <p><b>Name:</b> {{ name }}</p>
-
           <label class="form-label">Input (Interpolation in value)</label>
           <input type="text" [value]="inputType" placeholder="Enter text" class="form-control mb-2" />
-
           <label class="form-label">Dynamic Input Type</label>
-          <input [type]="inputType" [value]="inputType" placeholder="Dynamic type" class="form-control" />
+          <input [type]="inputType" [value]="inputType" placeholder="Dynamic type" class="form-control mt-auto" />
         </div>
       </div>
     </div>
@@ -24,23 +38,19 @@
     <!-- PROPERTY BINDING -->
     <div class="col-md-6 col-lg-3">
       <div class="card border-success shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h4 class="card-title text-success">🔹 Property Binding</h4>
           <div class="alert alert-success small">
             Use <code>[ ]</code> to bind HTML properties dynamically.
           </div>
-
           <p><b>Wrong:</b> <code>&lt;div class={{myClassName}}&gt;</code></p>
           <div class="{{ myClassName }}">Danger (Not Recommended)</div>
-
           <p class="mt-2"><b>Correct:</b></p>
           <div [class]="myClassName">Danger (Property Binding)</div>
-
           <label class="form-label mt-3">Input with [value]</label>
           <input type="text" [value]="name" class="form-control mb-2" />
-
           <label class="form-label">Input with [type]</label>
-          <input [type]="inputType1" class="form-control" placeholder="Dynamic input type" />
+          <input [type]="inputType1" class="form-control mt-auto" placeholder="Dynamic input type" />
         </div>
       </div>
     </div>
@@ -48,19 +58,17 @@
     <!-- EVENT BINDING -->
     <div class="col-md-6 col-lg-3">
       <div class="card border-danger shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h4 class="card-title text-danger">🔹 Event Binding</h4>
           <div class="alert alert-danger small">
             Use <code>( )</code> to listen for user events like click or input.
           </div>
-
           <button class="btn btn-warning w-100 mb-2" (click)="showAlert('Button Clicked!')">
             Click Me
           </button>
-
           <h5 class="mt-3">Change Name Example</h5>
           <p><b>Current Name:</b> <span class="text-secondary">{{ name }}</span></p>
-          <button class="btn btn-info w-100" (click)="chageNmae()">
+          <button class="btn btn-info w-100 mt-auto" (click)="chageNmae()">
             Change Name
           </button>
         </div>
@@ -70,16 +78,14 @@
     <!-- TWO-WAY BINDING -->
     <div class="col-md-6 col-lg-3">
       <div class="card border-warning shadow-sm h-100">
-        <div class="card-body">
+        <div class="card-body d-flex flex-column">
           <h4 class="card-title text-warning">🔹 Two-way Binding</h4>
           <div class="alert alert-warning small">
             <code>[(ngModel)]</code> syncs HTML and TS values in real-time.
           </div>
-
           <label class="form-label">Name (Two-way binding)</label>
           <input type="text" [(ngModel)]="name" placeholder="Enter name" class="form-control mb-2" />
           <p class="text-success"><b>Live Preview:</b> {{ name }}</p>
-
           <label class="form-label mt-3">Division Selector</label>
           <select [(ngModel)]="divisionName" class="form-select mb-2">
             <option disabled selected>-- Select Division --</option>
@@ -89,7 +95,6 @@
             <option value="Rajshahi">Rajshahi</option>
           </select>
           <p class="text-success"><b>Selected Division:</b> {{ divisionName }}</p>
-
           <h5 class="mt-4 text-primary">Signal Example</h5>
           <div class="alert alert-primary small">
             Signals are reactive values you can read with a function.

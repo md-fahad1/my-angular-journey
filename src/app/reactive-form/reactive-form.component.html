@@ -1,8 +1,10 @@
-<div class="container py-5">
-  <h2 class="text-center text-gradient mb-4">📝 Angular Reactive Form Example</h2>
+<div class="container py-3">
+
+  <!-- PAGE HEADING -->
+  <h2 class="text-center text-dark mb-4">📝 Angular Reactive Form Example</h2>
 
   <!-- NOTE CARD -->
-  <div class="alert alert-info">
+  <div class="alert alert-info shadow-sm mb-4">
     <h6 class="fw-bold">📌 Learning Notes:</h6>
     <ul class="mb-0 small">
       <li>✅ <b>formGroup</b> binds the entire form in TS.</li>
@@ -13,7 +15,8 @@
     </ul>
   </div>
 
-  <div class="card shadow-lg p-4">
+  <!-- FORM CARD -->
+  <div class="card shadow-lg p-4 mb-4">
     <form class="row g-3" [formGroup]="studentForm" (ngSubmit)="onSave()">
 
       <!-- First Name -->
@@ -100,7 +103,7 @@
         </div>
       </div>
 
-      <!-- Country (Select) -->
+      <!-- Country -->
       <div class="col-md-6">
         <label class="form-label">Country</label>
         <select class="form-select" formControlName="country">
@@ -131,14 +134,16 @@
           🚀 Submit Form
         </button>
       </div>
+
     </form>
   </div>
 
-  <!-- Live Preview -->
+  <!-- LIVE SUMMARY PANEL -->
   <div class="card mt-4 shadow-sm">
     <div class="card-header bg-dark text-white">📊 Live Form Data</div>
     <div class="card-body">
       <pre>{{ studentForm.value | json }}</pre>
     </div>
   </div>
+
 </div>

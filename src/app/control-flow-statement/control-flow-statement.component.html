@@ -1,138 +1,213 @@
-<div class="container mt-4">
-  <h3 class="mb-3">🔹 Angular Control Flow Examples</h3>
-  <p class="text-muted">Practicing real-world use cases with i f,  for, switch, etc.</p>
+<div class="container py-3">
+
+  <!-- PAGE HEADING -->
+  <h2 class="text-center text-dark mb-4">📝 Angular Control Flow Example</h2>
+
+  <!-- NOTE SECTION -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="alert alert-secondary text-dark shadow-sm">
+        <h5>Note:</h5>
+        <p>
+          Control flow examples demonstrate conditional rendering, looping, and switch-case logic. Keep the if, for, and switch syntax as examples for learning purposes.
+        </p>
+      </div>
+    </div>
+  </div>
+
 
   <div class="row g-4">
 
-    <!-- Example 1: Basic Show/Hide -->
-    <div class="col-4">
-      <h5>1. Show / Hide Div</h5>
-      @if(div1Visible){
-        <div class="p-3 text-center bg-primary text-white rounded">Visible Div</div>
-      }
-      <div class="mt-2">
-        <button class="btn btn-success btn-sm" (click)="ShowDiv()">Show</button>
-        <button class="btn btn-danger btn-sm" (click)="HideDiv()">Hide</button>
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-primary shadow-sm h-100">
+        <div class="card-header bg-gradient-primary text-white fw-bold">Example 1: Show / Hide Div</div>
+        <div class="card-body d-flex flex-column">
+          @if(div1Visible){
+            <div class="p-3 text-center bg-primary text-white rounded mb-2">Visible Div</div>
+          }
+          <div class="mt-auto">
+            <button class="btn btn-success btn-sm me-2" (click)="ShowDiv()">Show</button>
+            <button class="btn btn-danger btn-sm" (click)="HideDiv()">Hide</button>
+          </div>
+        </div>
       </div>
     </div>
 
     <!-- Example 2: Toggle -->
-    <div class="col-4">
-      <h5>2. Toggle Div</h5>
-      @if(div2Visible){
-        <div class="p-3 text-center bg-secondary text-white rounded">Toggle Div</div>
-      }@else{
-        <div class="p-3 text-center bg-warning text-dark rounded">Hidden Div</div>
-      }
-      <button class="btn btn-info btn-sm mt-2" (click)="ToggleDiv()">Toggle</button>
-    </div>
-
-    <!-- Example 3: Show Name / Age -->
-    <div class="col-4">
-      <h5>3. Student Info</h5>
-      @if(show === 'name'){
-        <ul class="list-group">
-          @for(stu of studentList; track $index){
-            <li class="list-group-item">{{stu.name}}</li>
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-success shadow-sm h-100">
+        <div class="card-header bg-gradient-success text-white fw-bold">Example 2: Toggle Div</div>
+        <div class="card-body d-flex flex-column">
+          @if(div2Visible){
+            <div class="p-3 text-center bg-secondary text-white rounded mb-2">Toggle Div</div>
+          }@else{
+            <div class="p-3 text-center bg-warning text-dark rounded mb-2">Hidden Div</div>
           }
-        </ul>
-      }@else{
-        <ul class="list-group">
-          @for(stu of studentList; track $index){
-            <li class="list-group-item">{{stu.age}}</li>
-          }
-        </ul>
-      }
-      <div class="mt-2">
-        <button class="btn btn-outline-primary btn-sm" (click)="showName()">Show Names</button>
-        <button class="btn btn-outline-success btn-sm" (click)="showAge()">Show Ages</button>
+          <button class="btn btn-info btn-sm mt-auto" (click)="ToggleDiv()">Toggle</button>
+        </div>
       </div>
     </div>
 
-    <!-- Example 4: Switch Case -->
-    <div class="col-4">
-      <h5>4. Order Status</h5>
-      @switch(orderStatus){
-        @case("pending") { <span class="badge bg-warning">Pending</span> }
-        @case("processing") { <span class="badge bg-info">Processing</span> }
-        @case("shipped") { <span class="badge bg-primary">Shipped</span> }
-        @case("delivered") { <span class="badge bg-success">Delivered</span> }
-        @default { <span class="badge bg-secondary">Unknown</span> }
-      }
+    <!-- Example 3: Student Info -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-warning shadow-sm h-100">
+        <div class="card-header bg-gradient-warning text-dark fw-bold">Example 3: Student Info</div>
+        <div class="card-body d-flex flex-column">
+          @if(show === 'name'){
+            <ul class="list-group mb-2">
+              @for(stu of studentList; track $index){
+                <li class="list-group-item">{{stu.name}}</li>
+              }
+            </ul>
+          }@else{
+            <ul class="list-group mb-2">
+              @for(stu of studentList; track $index){
+                <li class="list-group-item">{{stu.age}}</li>
+              }
+            </ul>
+          }
+          <div class="mt-auto">
+            <button class="btn btn-outline-primary btn-sm me-2" (click)="showName()">Show Names</button>
+            <button class="btn btn-outline-success btn-sm" (click)="showAge()">Show Ages</button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Example 5: Logged In -->
-    <div class="col-4">
-      <h5>5. User Login</h5>
-      @if(isLoggedIn){
-        <p>Welcome back, <b>{{user.name}}</b> ({{user.role}})</p>
-      }@else{
-        <p>Please <a href="#">Login</a> to continue</p>
-      }
+    <!-- Example 4: Order Status -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-info shadow-sm h-100">
+        <div class="card-header bg-gradient-info text-white fw-bold">Example 4: Order Status</div>
+        <div class="card-body d-flex justify-content-center align-items-center">
+          @switch(orderStatus){
+            @case("pending") { <span class="badge bg-warning">Pending</span> }
+            @case("processing") { <span class="badge bg-info">Processing</span> }
+            @case("shipped") { <span class="badge bg-primary">Shipped</span> }
+            @case("delivered") { <span class="badge bg-success">Delivered</span> }
+            @default { <span class="badge bg-secondary">Unknown</span> }
+          }
+        </div>
+      </div>
+    </div>
+
+    <!-- Example 5: User Login -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-secondary shadow-sm h-100">
+        <div class="card-header bg-gradient-secondary text-white fw-bold">Example 5: User Login</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          @if(isLoggedIn){
+            <p>Welcome back, <b>{{user.name}}</b> ({{user.role}})</p>
+          }@else{
+            <p>Please <a href="#">Login</a> to continue</p>
+          }
+        </div>
+      </div>
     </div>
 
     <!-- Example 6: Shopping Cart -->
-    <div class="col-4">
-      <h5>6. Cart Items</h5>
-      @for(item of cartItems; track $index){
-        <div class="border p-2 rounded mb-1">
-          {{item.name}} - ${{item.price}} x {{item.qty}}
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-dark shadow-sm h-100">
+        <div class="card-header bg-dark text-white fw-bold">Example 6: Cart Items</div>
+        <div class="card-body d-flex flex-column">
+          @for(item of cartItems; track $index){
+            <div class="border p-2 rounded mb-1">
+              {{item.name}} - ${{item.price}} x {{item.qty}}
+            </div>
+          }
+          <button class="btn btn-primary btn-sm mt-auto" (click)="checkout()">Checkout</button>
         </div>
-      }
-      <button class="btn btn-primary btn-sm mt-2" (click)="checkout()">Checkout</button>
+      </div>
     </div>
 
     <!-- Example 7: Notifications -->
-    <div class="col-4">
-      <h5>7. Notifications</h5>
-      @if(notifications.length > 0){
-        <ul class="list-group">
-          @for(n of notifications; track $index){
-            <li class="list-group-item">{{n}}</li>
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-success shadow-sm h-100">
+        <div class="card-header bg-gradient-success text-white fw-bold">Example 7: Notifications</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          @if(notifications.length > 0){
+            <ul class="list-group">
+              @for(n of notifications; track $index){
+                <li class="list-group-item">{{n}}</li>
+              }
+            </ul>
+          }@else{
+            <p>No new notifications 🎉</p>
           }
-        </ul>
-      }@else{
-        <p>No new notifications 🎉</p>
-      }
+        </div>
+      </div>
     </div>
 
     <!-- Example 8: Nested Conditions -->
-    <div class="col-4">
-      <h5>8. Weather</h5>
-      @if(weather.temp > 30){
-        <p>☀️ Hot ({{weather.temp}}°C)</p>
-      }@else if(weather.temp > 20){
-        <p>🌤 Pleasant ({{weather.temp}}°C)</p>
-      }@else{
-        <p>❄️ Cold ({{weather.temp}}°C)</p>
-      }
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-warning shadow-sm h-100">
+        <div class="card-header bg-gradient-warning text-dark fw-bold">Example 8: Weather</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          @if(weather.temp > 30){
+            <p>☀️ Hot ({{weather.temp}}°C)</p>
+          }@else if(weather.temp > 20){
+            <p>🌤 Pleasant ({{weather.temp}}°C)</p>
+          }@else{
+            <p>❄️ Cold ({{weather.temp}}°C)</p>
+          }
+        </div>
+      </div>
     </div>
 
-    <!-- Example 9: Empty Task List -->
-    <div class="col-4">
-      <h5>9. Task List</h5>
-      @if(tasks.length === 0){
-        <p>No tasks available 📌</p>
-      }@else{
-        <ul>
-          @for(t of tasks; track $index){
-            <li>{{t}}</li>
+    <!-- Example 9: Task List -->
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-info shadow-sm h-100">
+        <div class="card-header bg-gradient-info text-white fw-bold">Example 9: Task List</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          @if(tasks.length === 0){
+            <p>No tasks available 📌</p>
+          }@else{
+            <ul>
+              @for(t of tasks; track $index){
+                <li>{{t}}</li>
+              }
+            </ul>
           }
-        </ul>
-      }
+        </div>
+      </div>
     </div>
 
     <!-- Example 10: Role-Based Access -->
-    <div class="col-4">
-      <h5>10. Access Control</h5>
-      @if(role === "Admin"){
-        <p class="text-success">You have full access 🔑</p>
-      }@else if(role === "User"){
-        <p class="text-info">You have limited access 📋</p>
-      }@else{
-        <p class="text-danger">Guest access only ❌</p>
-      }
+    <div class="col-md-6 col-lg-4">
+      <div class="card border-primary shadow-sm h-100">
+        <div class="card-header bg-gradient-primary text-white fw-bold">Example 10: Access Control</div>
+        <div class="card-body d-flex flex-column justify-content-center">
+          @if(role === "Admin"){
+            <p class="text-success">You have full access 🔑</p>
+          }@else if(role === "User"){
+            <p class="text-info">You have limited access 📋</p>
+          }@else{
+            <p class="text-danger">Guest access only ❌</p>
+          }
+        </div>
+      </div>
     </div>
 
   </div>
+
+  <!-- SUMMARY PANEL -->
+  <div class="row mt-4">
+    <div class="col-12">
+      <div class="card border-dark shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title text-dark">📊 Live Summary</h4>
+          <p><b>Div1 Visible:</b> {{div1Visible}}</p>
+          <p><b>Div2 Visible:</b> {{div2Visible}}</p>
+          <p><b>Show:</b> {{show}}</p>
+          <p><b>Order Status:</b> {{orderStatus}}</p>
+          <p><b>Logged In:</b> {{isLoggedIn}}</p>
+          <p><b>Cart Items:</b> {{cartItems.length}}</p>
+          <p><b>Notifications:</b> {{notifications.length}}</p>
+          <p><b>Weather Temp:</b> {{weather.temp}}</p>
+          <p><b>Tasks Count:</b> {{tasks.length}}</p>
+          <p><b>Role:</b> {{role}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>

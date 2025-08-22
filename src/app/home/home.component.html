@@ -1,0 +1,44 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/">Logo</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" routerLink="/data-binding">Data Binding</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Directive</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/structural-directive">Structural Directive</a></li>
+            <li><a class="dropdown-item" routerLink="/attribute-directive">Attribute Directive</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" routerLink="/control-flow">Control Flow</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Forms</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" routerLink="/forms/tamplate-form">Template Form</a></li>
+            <li><a class="dropdown-item" routerLink="/forms/reactive-form">Reactive Form</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Sidebar + Main content -->
+<div class="">
+  <div class="row" style="margin-top: 56px;">
+    <!-- Sidebar -->
+    <div class="col-3 bg-light min-vh-100 position-fixed" style="top: 56px;">
+      <app-sidebar></app-sidebar>
+    </div>
+
+    <!-- Main content -->
+    <div class="col-9 offset-3 p-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

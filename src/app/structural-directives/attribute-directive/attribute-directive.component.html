@@ -1,172 +1,249 @@
-<div class="container mt-4">
-  <h2 class="mb-4 text-primary">🎨 Attribute Directive Playground</h2>
-  <p class="text-muted">Learn <code>ngClass</code> and <code>ngStyle</code> with practical examples</p>
+<div class="container py-3">
+  <!-- PAGE HEADING -->
+  <h2 class="text-center text-dark mb-4">📝 Angular Attribute Directive Example</h2>
 
-  <!-- Example 1 -->
-  <div class="row g-3 mb-4">
-    <div class="col-md-3">
-      <!-- Dynamic Background Class -->
-      <div class="p-3 rounded shadow text-center" [ngClass]="divBgColor">
-        <h5>Example 1</h5>
-        <small>Dynamic Button Colors</small>
-      </div>
-      <div class="mt-2">
-        <button class="btn btn-sm btn-danger me-2" (click)="changeButtonColorRed()">Red</button>
-        <button class="btn btn-sm btn-success" (click)="changeButtonColorGreen()">Green</button>
-      </div>
-    </div>
-
-    <!-- Example 2 -->
-    <div class="col-md-3">
-      <!-- Toggle with ternary operator -->
-      <div class="p-3 rounded shadow text-center"
-           [ngClass]="isDivVisible ? 'bg-success text-white' : 'bg-warning text-dark'">
-        <h5>Example 2</h5>
-        <small>Toggle Div</small>
-      </div>
-      <button class="btn btn-sm btn-primary mt-2" (click)="toggleDiv()">Toggle</button>
-    </div>
-
-    <!-- Example 3 -->
-    <div class="col-md-3">
-      <!-- Dynamic input-based color -->
-      <div class="p-3 rounded shadow text-center text-white"
-           [style.background-color]="inputColor || 'gray'">
-        <h5>Example 3</h5>
-        <small>Input Color</small>
-      </div>
-      <input type="text" [(ngModel)]="inputColor" class="form-control mt-2"
-             placeholder="Type a color (red, blue, #ff0000)">
-    </div>
-
-    <!-- Example 4 -->
-    <div class="col-md-3">
-      <!-- Hover Effect -->
-      <div class="p-3 rounded shadow text-center"
-           [ngClass]="isHovered ? 'bg-dark text-white' : 'bg-light'"
-           (mouseenter)="isHovered=true" (mouseleave)="isHovered=false">
-        <h5>Example 4</h5>
-        <small>Hover Effect</small>
-      </div>
-    </div>
-  </div>
-
-  <!-- Example 5 -->
+  <!-- NOTE SECTION -->
   <div class="row mb-4">
-    <div class="col-md-6">
-      <!-- Multiple Conditional Classes -->
-      <div class="p-3 text-center"
-           [ngClass]="{'border': hasBorder, 'rounded-circle': isRounded, 'bg-info text-white': true}">
-        <h5>Example 5</h5>
-        <small>Multiple Conditional Classes</small>
-      </div>
-      <div class="mt-2">
-        <button class="btn btn-outline-secondary me-2" (click)="hasBorder=!hasBorder">Toggle Border</button>
-        <button class="btn btn-outline-secondary" (click)="isRounded=!isRounded">Toggle Round</button>
+    <div class="col-12">
+      <div class="alert alert-secondary text-dark shadow-sm">
+        <h5>Note:</h5>
+        <p>
+          Attribute directives modify the appearance or behavior of elements. Common examples include 
+          <code>ngClass</code> and <code>ngStyle</code>. Each card below demonstrates practical usage.
+        </p>
       </div>
     </div>
   </div>
 
-  <!-- Example 6: Tabs -->
-  <h5>Example 6: Tabs</h5>
-  <ul class="nav nav-pills mb-3">
-    <li class="nav-item">
-      <button class="nav-link" [ngClass]="{'active': activeTab===0}" (click)="setTab(0)">Home</button>
-    </li>
-    <li class="nav-item">
-      <button class="nav-link" [ngClass]="{'active': activeTab===1}" (click)="setTab(1)">Profile</button>
-    </li>
-    <li class="nav-item">
-      <button class="nav-link" [ngClass]="{'active': activeTab===2}" (click)="setTab(2)">Settings</button>
-    </li>
-  </ul>
-  <div class="p-3 border rounded bg-light mb-4">
-    <p *ngIf="activeTab===0">🏠 Home content goes here</p>
-    <p *ngIf="activeTab===1">👤 Profile content goes here</p>
-    <p *ngIf="activeTab===2">⚙️ Settings content goes here</p>
-  </div>
-
-  <!-- Example 7: Student Table -->
-  <h5>Example 7: Student Table</h5>
-  <table class="table table-bordered table-striped text-center align-middle shadow-sm">
-    <thead class="table-dark">
-      <tr><th>Id</th><th>Name</th><th>City</th><th>Status</th><th>Mark</th></tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let student of studentList">
-        <td>{{student.id}}</td>
-        <td>{{student.name}}</td>
-        <td>{{student.city}}</td>
-        <td [ngStyle]="{'background-color': student.isActive ? 'lightgreen' : 'lightcoral'}">
-          {{student.isActive ? 'Active' : 'Inactive'}}
-        </td>
-        <td>
-          <div class="progress" style="height: 20px;">
-            <div class="progress-bar"
-                 [style.width.%]="student.mark"
-                 [ngClass]="student.mark >= 80 ? 'bg-success' : student.mark >= 60 ? 'bg-warning' : 'bg-danger'">
-              {{student.mark}}%
+  <!-- ATTRIBUTE DIRECTIVES EXAMPLES -->
+  <div class="row g-4 mb-5">
+    <!-- Example 1-4 Cards -->
+    <div class="col-md-6 col-lg-3" *ngFor="let ex of [1,2,3,4]">
+      <div class="card border-primary shadow-sm h-100">
+        <div class="card-header bg-gradient-primary text-white fw-bold">
+          Example {{ex}}
+        </div>
+        <div class="card-body d-flex flex-column">
+          <ng-container [ngSwitch]="ex">
+            <!-- Example 1 -->
+            <div *ngSwitchCase="1" class="text-center">
+              <div class="p-3 rounded shadow mb-2" [ngClass]="divBgColor">
+                <h5>Dynamic Button Colors</h5>
+              </div>
+              <div>
+                <button class="btn btn-sm btn-danger me-2" (click)="changeButtonColorRed()">Red</button>
+                <button class="btn btn-sm btn-success" (click)="changeButtonColorGreen()">Green</button>
+              </div>
             </div>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-
-  <!-- 🌟 EXTRA PRACTICAL EXAMPLES -->
-  <hr>
-  <h4 class="text-secondary mb-3">Extra Real-World Examples</h4>
-
-  <!-- Example 8: Active/Inactive Button -->
-  <button class="btn"
-          [ngClass]="isButtonActive ? 'btn-success' : 'btn-outline-secondary'"
-          (click)="isButtonActive=!isButtonActive">
-    {{isButtonActive ? 'Active' : 'Inactive'}}
-  </button>
-
-  <!-- Example 9: Dark/Light Theme -->
-  <div class="mt-3 p-3 rounded"
-       [ngClass]="isDarkTheme ? 'bg-dark text-white' : 'bg-light text-dark'">
-    <h6>Example 9: Theme Toggle</h6>
-    <button class="btn btn-sm btn-outline-info" (click)="isDarkTheme=!isDarkTheme">
-      Toggle Theme
-    </button>
-  </div>
-
-  <!-- Example 10: Selectable Cards -->
-  <div class="row mt-3">
-    <div class="col-md-3" *ngFor="let card of [1,2,3]; let i=index">
-      <div class="card shadow-sm mb-3"
-           [ngClass]="{'border border-primary': selectedCard===i}">
-        <div class="card-body text-center">
-          <h6>Card {{i+1}}</h6>
-          <button class="btn btn-sm btn-outline-primary" (click)="selectCard(i)">Select</button>
+            <!-- Example 2 -->
+            <div *ngSwitchCase="2" class="text-center">
+              <div class="p-3 rounded shadow mb-2"
+                   [ngClass]="isDivVisible ? 'bg-success text-white' : 'bg-warning text-dark'">
+                Toggle Div
+              </div>
+              <button class="btn btn-sm btn-primary mt-2" (click)="toggleDiv()">Toggle</button>
+            </div>
+            <!-- Example 3 -->
+            <div *ngSwitchCase="3" class="text-center">
+              <div class="p-3 rounded shadow mb-2 text-white"
+                   [style.background-color]="inputColor || 'gray'">
+                Input Color
+              </div>
+              <input type="text" [(ngModel)]="inputColor" class="form-control mt-2"
+                     placeholder="Type a color (red, blue, #ff0000)">
+            </div>
+            <!-- Example 4 -->
+            <div *ngSwitchCase="4" class="text-center">
+              <div class="p-3 rounded shadow mb-2"
+                   [ngClass]="isHovered ? 'bg-dark text-white' : 'bg-light'"
+                   (mouseenter)="isHovered=true" (mouseleave)="isHovered=false">
+                Hover Effect
+              </div>
+            </div>
+          </ng-container>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Example 11: Dynamic Alerts -->
-  <div class="mt-3">
-    <h6>Example 11: Alerts</h6>
-    <button class="btn btn-success me-2" (click)="setAlert('success')">Success</button>
-    <button class="btn btn-warning me-2" (click)="setAlert('warning')">Warning</button>
-    <button class="btn btn-danger" (click)="setAlert('danger')">Danger</button>
-
-    <div *ngIf="alertType" class="alert mt-2"
-         [ngClass]="'alert-'+alertType">
-      This is a {{alertType}} alert!
+  <!-- Example 5: Conditional Classes -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card border-success shadow-sm h-100">
+        <div class="card-header bg-gradient-success text-white fw-bold">Example 5: Multiple Conditional Classes</div>
+        <div class="card-body d-flex flex-column">
+          <div class="p-3 text-center mb-2"
+               [ngClass]="{'border': hasBorder, 'rounded-circle': isRounded, 'bg-info text-white': true}">
+            Dynamic Box
+          </div>
+          <div>
+            <button class="btn btn-outline-secondary me-2" (click)="hasBorder=!hasBorder">Toggle Border</button>
+            <button class="btn btn-outline-secondary" (click)="isRounded=!isRounded">Toggle Round</button>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <!-- Example 12: Rating System -->
-  <div class="mt-4">
-    <h6>Example 12: Rating System</h6>
-    <span *ngFor="let star of [1,2,3,4,5]" class="fs-3 me-2"
-          (click)="setRating(star)"
-          [ngClass]="star <= rating ? 'text-warning' : 'text-muted'">
-      ★
-    </span>
-    <span class="ms-2">({{rating}} / 5)</span>
+  <!-- Example 6: Tabs -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card border-warning shadow-sm h-100">
+        <div class="card-header bg-gradient-warning text-dark fw-bold">Example 6: Tabs</div>
+        <div class="card-body d-flex flex-column">
+          <ul class="nav nav-pills mb-3">
+            <li class="nav-item">
+              <button class="nav-link" [ngClass]="{'active': activeTab===0}" (click)="setTab(0)">Home</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" [ngClass]="{'active': activeTab===1}" (click)="setTab(1)">Profile</button>
+            </li>
+            <li class="nav-item">
+              <button class="nav-link" [ngClass]="{'active': activeTab===2}" (click)="setTab(2)">Settings</button>
+            </li>
+          </ul>
+          <div class="p-3 border rounded bg-light mt-auto">
+            <p *ngIf="activeTab===0">🏠 Home content goes here</p>
+            <p *ngIf="activeTab===1">👤 Profile content goes here</p>
+            <p *ngIf="activeTab===2">⚙️ Settings content goes here</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 7: Student Table -->
+  <div class="row mb-4">
+    <div class="col-12">
+      <div class="card border-info shadow-sm h-100">
+        <div class="card-header bg-gradient-info text-white fw-bold">Example 7: Student Table</div>
+        <div class="card-body">
+          <table class="table table-bordered table-striped text-center align-middle shadow-sm mb-0">
+            <thead class="table-dark">
+              <tr><th>Id</th><th>Name</th><th>City</th><th>Status</th><th>Mark</th></tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let student of studentList">
+                <td>{{student.id}}</td>
+                <td>{{student.name}}</td>
+                <td>{{student.city}}</td>
+                <td [ngStyle]="{'background-color': student.isActive ? 'lightgreen' : 'lightcoral'}">
+                  {{student.isActive ? 'Active' : 'Inactive'}}
+                </td>
+                <td>
+                  <div class="progress" style="height: 20px;">
+                    <div class="progress-bar"
+                         [style.width.%]="student.mark"
+                         [ngClass]="student.mark >= 80 ? 'bg-success' : student.mark >= 60 ? 'bg-warning' : 'bg-danger'">
+                      {{student.mark}}%
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXTRA PRACTICAL EXAMPLES -->
+  <div class="row mb-4">
+    <div class="col-md-4">
+      <div class="card border-primary shadow-sm h-100">
+        <div class="card-header bg-gradient-primary text-white fw-bold">Example 8: Active/Inactive Button</div>
+        <div class="card-body text-center d-flex flex-column">
+          <button class="btn mt-auto"
+                  [ngClass]="isButtonActive ? 'btn-success' : 'btn-outline-secondary'"
+                  (click)="isButtonActive=!isButtonActive">
+            {{isButtonActive ? 'Active' : 'Inactive'}}
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-secondary shadow-sm h-100">
+        <div class="card-header bg-gradient-secondary text-white fw-bold">Example 9: Dark/Light Theme</div>
+        <div class="card-body d-flex flex-column">
+          <div class="p-3 rounded mb-2 mt-auto" [ngClass]="isDarkTheme ? 'bg-dark text-white' : 'bg-light text-dark'">
+            Toggle Theme Example
+          </div>
+          <button class="btn btn-sm btn-outline-info" (click)="isDarkTheme=!isDarkTheme">Toggle Theme</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card border-warning shadow-sm h-100">
+        <div class="card-header bg-gradient-warning text-dark fw-bold">Example 10: Selectable Cards</div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12" *ngFor="let card of [1,2,3]; let i=index">
+              <div class="card shadow-sm mb-3"
+                   [ngClass]="{'border border-primary': selectedCard===i}">
+                <div class="card-body text-center">
+                  <h6>Card {{i+1}}</h6>
+                  <button class="btn btn-sm btn-outline-primary" (click)="selectCard(i)">Select</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 11: Alerts & 12: Rating -->
+  <div class="row g-4 mb-5">
+    <div class="col-md-6">
+      <div class="card border-success shadow-sm h-100">
+        <div class="card-header bg-gradient-success text-white fw-bold">Example 11: Dynamic Alerts</div>
+        <div class="card-body text-center d-flex flex-column">
+          <div class="mb-2">
+            <button class="btn btn-success me-2" (click)="setAlert('success')">Success</button>
+            <button class="btn btn-warning me-2" (click)="setAlert('warning')">Warning</button>
+            <button class="btn btn-danger" (click)="setAlert('danger')">Danger</button>
+          </div>
+          <div *ngIf="alertType" class="alert mt-auto" [ngClass]="'alert-'+alertType">
+            This is a {{alertType}} alert!
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card border-info shadow-sm h-100">
+        <div class="card-header bg-gradient-info text-white fw-bold">Example 12: Rating System</div>
+        <div class="card-body text-center d-flex flex-column">
+          <div class="mt-auto">
+            <span *ngFor="let star of [1,2,3,4,5]" class="fs-3 me-2"
+                  (click)="setRating(star)"
+                  [ngClass]="star <= rating ? 'text-warning' : 'text-muted'">
+              ★
+            </span>
+            <span class="ms-2">({{rating}} / 5)</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUMMARY PANEL -->
+  <div class="row">
+    <div class="col-12">
+      <div class="card border-dark shadow-sm">
+        <div class="card-body">
+          <h4 class="card-title text-dark">📊 Live Summary</h4>
+          <p><b>Div Background Color:</b> {{divBgColor}}</p>
+          <p><b>Toggle Div Visible:</b> {{isDivVisible}}</p>
+          <p><b>Input Color:</b> {{inputColor}}</p>
+          <p><b>Conditional Classes:</b> Border: {{hasBorder}}, Rounded: {{isRounded}}</p>
+          <p><b>Active Button:</b> {{isButtonActive}}</p>
+          <p><b>Dark Theme:</b> {{isDarkTheme}}</p>
+          <p><b>Selected Card:</b> {{selectedCard + 1}}</p>
+          <p><b>Active Tab:</b> {{activeTab}}</p>
+          <p><b>Alert Type:</b> {{alertType}}</p>
+          <p><b>Rating:</b> {{rating}} / 5</p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
