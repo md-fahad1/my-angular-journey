@@ -1,0 +1,58 @@
+<div class="container mt-5">
+  <!-- Title -->
+  <div class="text-center mb-5">
+    <h2 class="text-dark">📝 Angular Post API Example</h2>
+    <hr class="w-25 mx-auto">
+  </div>
+
+  <div class="row g-4">
+    <!-- Left Column: Get Details -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-primary text-white text-center">
+          Get Details
+        </div>
+        <div class="card-body">
+          <table class="table table-striped table-hover align-middle">
+            <thead class="table-dark">
+              <tr>
+                <th>First Name</th>
+                <th>Last Name</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let u of getUser">
+                <td>{{ u.firstName }}</td>
+                <td>{{ u.lastName }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right Column: Create -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <div class="card-header bg-success text-white text-center">
+          Create
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="onSave()" class="row g-3">
+            <div class="col-12">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" name="firstName" [(ngModel)]="user.firstName" placeholder="Enter First Name" required>
+            </div>
+            <div class="col-12">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" name="lastName" [(ngModel)]="user.lastName" placeholder="Enter Last Name" required>
+            </div>
+            <div class="col-12 text-center mt-3">
+              <button class="btn btn-success w-50" type="submit">Save</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

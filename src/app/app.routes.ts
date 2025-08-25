@@ -7,6 +7,7 @@ import { TamplateFormComponent } from './tamplate-form/tamplate-form.component';
 import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HomeComponent } from './home/home.component';
 import { GetapiComponent } from './getapi/getapi.component';
+import { PostapiComponent } from './postapi/postapi.component';
 
 export const routes: Routes = [
   {
@@ -18,7 +19,8 @@ export const routes: Routes = [
       { path: 'control-flow', component: ControlFlowStatementComponent },
       { path: 'forms/tamplate-form', component: TamplateFormComponent },
       { path: 'forms/reactive-form', component: ReactiveFormComponent },
-        { path: 'getapi', component: GetapiComponent },
+      { path: 'getapi', component: GetapiComponent },
+        { path: 'postapi', component: PostapiComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },
