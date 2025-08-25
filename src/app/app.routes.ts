@@ -8,6 +8,7 @@ import { ReactiveFormComponent } from './reactive-form/reactive-form.component';
 import { HomeComponent } from './home/home.component';
 import { GetapiComponent } from './getapi/getapi.component';
 import { PostapiComponent } from './postapi/postapi.component';
+import { NgTamplatecomponentComponent } from './ng-tamplatecomponent/ng-tamplatecomponent.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,7 @@ export const routes: Routes = [
       { path: 'forms/reactive-form', component: ReactiveFormComponent },
       { path: 'getapi', component: GetapiComponent },
         { path: 'postapi', component: PostapiComponent },
+         { path: 'ngtamplate', component: NgTamplatecomponentComponent },
       { path: '', redirectTo: 'home', pathMatch: 'full' }
     ]
   },

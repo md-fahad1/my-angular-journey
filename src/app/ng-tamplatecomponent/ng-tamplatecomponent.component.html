@@ -1,0 +1,32 @@
+<div>
+    <app-heading [message]="'Ng tamplate'"></app-heading>
+    <div>
+        <div class="row">
+            <div class="col-3">
+                <div class="bg-primary" *ngIf="isUserLoggedIn; else notLogged">
+                    {{loggedUserName}}
+                </div>
+                <ng-template #notLogged>
+                    <div class="bg-primary" >
+                   <span>User not Logged In</span>
+                </div>
+
+                </ng-template>
+            </div>
+            <div class="col-3">
+                <ng-template #dynamicTem>
+                    <p> Hi dynamic</p>
+                </ng-template>
+            </div>
+            <div class="col-3" #dynamicContainer>
+                <div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn bg-primary mt-5 pt-3" (click)="loadTemplate()"> Load Content</button>
+        </div>
+    </div>
+</div>
