@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { HeadingComponent } from "../../reuseableComponent/heading/heading.component";
+import { ReuseableButtonComponent } from '../../reuseableComponent/reuseable-button/reuseable-button.component';
 
 @Component({
   selector: 'app-attribute-directive',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HeadingComponent,ReuseableButtonComponent],
   templateUrl: './attribute-directive.component.html',
   styleUrls: ['./attribute-directive.component.css']
 })

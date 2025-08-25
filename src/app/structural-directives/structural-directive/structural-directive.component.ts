@@ -1,12 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HeadingComponent } from "../../reuseableComponent/heading/heading.component";
 
 
 @Component({
   selector: 'app-structural-directive',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, HeadingComponent],
   templateUrl: './structural-directive.component.html',
   styleUrls: ['./structural-directive.component.css']
 })
