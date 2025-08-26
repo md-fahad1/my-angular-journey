@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
+  standalone: true,
   imports: [HeadingComponent, CommonModule, FormsModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
@@ -19,12 +20,21 @@ export class LoginComponent {
   router = inject(Router);
 
   onSave() {
-    if (this.loginObj.username === "Admin" && this.loginObj.password === "123") {
+    let users = JSON.parse(localStorage.getItem('users') || '[]');
+
+    const validUser = users.find(
+      (u: any) => u.username === this.loginObj.username && u.password === this.loginObj.password
+    );
+
+    if (validUser) {
       alert("✅ Login Successful!");
+
+      // save login state
+      localStorage.setItem('loggedInUser', JSON.stringify(validUser));
+
       this.router.navigateByUrl('getapi');
     } else {
-      alert("❌ Login Failed. Try again.");
-      this.router.navigateByUrl('login');
+      alert("❌ Invalid credentials. Try again.");
     }
   }
 }

@@ -12,6 +12,9 @@ import { NgTamplatecomponentComponent } from './ng-tamplatecomponent/ng-tamplate
 import { ViewchildComponent } from './viewchild/viewchild.component';
 import { LoginComponent } from './login/login.component';
 import { LayoutComponent } from './layout/layout.component';
+import { SignupComponent } from './signup/signup.component';
+import { authGuard } from './service/auth.guard';
+
 
 export const routes: Routes = [
   {
@@ -26,8 +29,11 @@ export const routes: Routes = [
         component: LayoutComponent,
         children: [
           { path: 'login', component: LoginComponent },
+          { path: 'signup', component: SignupComponent },
           { path: 'home', component: DataBindingComponent },
-          { path: 'data-binding', component: DataBindingComponent },
+          { path: 'data-binding', component: DataBindingComponent,
+            canActivate:[authGuard]
+           },
           { path: 'structural-directive', component: StructuralDirectiveComponent },
           { path: 'attribute-directive', component: AttributeDirectiveComponent },
           { path: 'control-flow', component: ControlFlowStatementComponent },
@@ -37,6 +43,7 @@ export const routes: Routes = [
           { path: 'postapi', component: PostapiComponent },
           { path: 'ngtamplate', component: NgTamplatecomponentComponent },
           { path: 'viewchild', component: ViewchildComponent },
+
           { path: '', redirectTo: 'home', pathMatch: 'full' }
         ]
       }
