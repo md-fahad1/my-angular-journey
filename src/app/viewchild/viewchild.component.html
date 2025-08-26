@@ -1,0 +1,33 @@
+<div class="container mt-5">
+
+  <!-- Heading with Note -->
+  <app-heading 
+    [message]="'View Child Example'" 
+   [note]="'@ViewChild allows this parent component to access the input field directly, read its value, and interact programmatically after the view initializes.'">
+  </app-heading>
+
+  <!-- Input Card -->
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card shadow-sm border-primary">
+        <div class="card-body">
+          <h5 class="card-title text-primary">Input Section</h5>
+          <p class="card-text text-muted">Type something below and click "Get Input Value".</p>
+          
+          <input type="text" #txt class="form-control mb-3" placeholder="Enter text" value="Demo Text">
+          <button class="btn btn-primary w-100" (click)="updateValue()">Get Input Value</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Display Input Value -->
+  <div class="row justify-content-center mt-4">
+      <div class="col-md-6">
+          <div class="alert alert-success text-center">
+              <strong>Input Value:</strong> {{ inputValue }}
+        </div>
+</div>
+  </div>
+
+</div>
+

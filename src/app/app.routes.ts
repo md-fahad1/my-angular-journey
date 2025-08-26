@@ -9,21 +9,38 @@ import { HomeComponent } from './home/home.component';
 import { GetapiComponent } from './getapi/getapi.component';
 import { PostapiComponent } from './postapi/postapi.component';
 import { NgTamplatecomponentComponent } from './ng-tamplatecomponent/ng-tamplatecomponent.component';
+import { ViewchildComponent } from './viewchild/viewchild.component';
+import { LoginComponent } from './login/login.component';
+import { LayoutComponent } from './layout/layout.component';
 
 export const routes: Routes = [
   {
     path: '', component: HomeComponent, children: [
-      { path: 'home', component: DataBindingComponent },
-      { path: 'data-binding', component: DataBindingComponent },
-      { path: 'structural-directive', component: StructuralDirectiveComponent },
-      { path: 'attribute-directive', component: AttributeDirectiveComponent },
-      { path: 'control-flow', component: ControlFlowStatementComponent },
-      { path: 'forms/tamplate-form', component: TamplateFormComponent },
-      { path: 'forms/reactive-form', component: ReactiveFormComponent },
-      { path: 'getapi', component: GetapiComponent },
-        { path: 'postapi', component: PostapiComponent },
-         { path: 'ngtamplate', component: NgTamplatecomponentComponent },
-      { path: '', redirectTo: 'home', pathMatch: 'full' }
+      {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full'
+      },
+      {
+        path: '',
+        component: LayoutComponent,
+        children: [
+          { path: 'login', component: LoginComponent },
+          { path: 'home', component: DataBindingComponent },
+          { path: 'data-binding', component: DataBindingComponent },
+          { path: 'structural-directive', component: StructuralDirectiveComponent },
+          { path: 'attribute-directive', component: AttributeDirectiveComponent },
+          { path: 'control-flow', component: ControlFlowStatementComponent },
+          { path: 'forms/tamplate-form', component: TamplateFormComponent },
+          { path: 'forms/reactive-form', component: ReactiveFormComponent },
+          { path: 'getapi', component: GetapiComponent },
+          { path: 'postapi', component: PostapiComponent },
+          { path: 'ngtamplate', component: NgTamplatecomponentComponent },
+          { path: 'viewchild', component: ViewchildComponent },
+          { path: '', redirectTo: 'home', pathMatch: 'full' }
+        ]
+      }
+
     ]
   },
   { path: '**', redirectTo: '' }
