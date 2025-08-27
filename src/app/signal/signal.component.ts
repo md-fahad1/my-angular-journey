@@ -5,22 +5,26 @@ import { HeadingComponent } from "../reuseableComponent/heading/heading.componen
   selector: 'app-signal',
   imports: [HeadingComponent],
   templateUrl: './signal.component.html',
-  styleUrl: './signal.component.css',
+  styleUrls: ['./signal.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SignalComponent {
-  firstName = signal("Angular")
-  rollNo = signal<number>(123)
-  constructor(){
-    
-    const fName = this.firstName();
-    setTimeout(()=>{
-      this.firstName.set("Tailwind")
+  // ✅ Define Signals
+  firstName = signal("Angular");
+  rollNo = signal<number>(123);
 
-    },5000);
+  constructor() {
+    // Example of auto update after 5 seconds
+    setTimeout(() => {
+      this.firstName.set("Tailwind");
+    }, 5000);
   }
-  changeName(){
-    this.firstName.set("react js")
 
+  changeName() {
+    this.firstName.set("React JS");
+  }
+
+  changeRoll() {
+    this.rollNo.update(v => v + 1); // increment roll number
   }
 }

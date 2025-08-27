@@ -1,21 +1,30 @@
-<div>
-    <app-heading [message]="'Signal'" [note]="'When singal value change it will automatically change the ui value no need zone.js  '"></app-heading>
-<div class="row">
-    <div class="col-3">
-        {{firstName()}}
-    </div>
-    <div class="col-3">
-        {{rollNo()}}
+<div class="container mt-4">
+  <app-heading 
+    [message]="'Angular Signals Demo 🚀'" 
+    [note]="'Signals are reactive primitives in Angular. They allow you to manage state in a reactive way without needing Zone.js. 
+    👉 When the signal value changes, Angular automatically updates the UI.
+    👉 No need for manual change detection or async pipes.
+    👉 Works perfectly with OnPush change detection for performance optimization.'">
+  </app-heading>
+
+  <div class="card shadow-lg p-4 rounded-4 mt-3">
+    <h5 class="mb-3">🔹 Basic Example</h5>
+    <div class="row text-center mb-3">
+      <div class="col-6">
+        <strong>First Name:</strong> <span class="text-primary">{{ firstName() }}</span>
+      </div>
+      <div class="col-6">
+        <strong>Roll No:</strong> <span class="text-success">{{ rollNo() }}</span>
+      </div>
     </div>
 
-</div>
-<div class="row">
-    <div class="col-3">
-        <button class="btn btn-primary p-1" (click)="changeName()">Change Name</button>
+    <div class="row text-center">
+      <div class="col-6">
+        <button class="btn btn-primary w-100" (click)="changeName()">Change Name</button>
+      </div>
+      <div class="col-6">
+        <button class="btn btn-outline-danger w-100" (click)="changeRoll()">Change Roll</button>
+      </div>
     </div>
-    <div class="col-3">
-        {{rollNo()}}
-    </div>
-
-</div>
+  </div>
 </div>

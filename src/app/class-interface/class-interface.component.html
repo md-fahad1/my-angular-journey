@@ -1,3 +1,37 @@
-<div>
-    <app-heading [message]="'Class and Interface'" [note]="'creating variable to bind form use CLASS and creating a variable to hold array use INTERFACE whenever you create a object in a class it automatically invok the contructor'"></app-heading>
+<div class="container mt-4">
+  <app-heading 
+    [message]="'Class vs Interface in Angular 🚀'" 
+    [note]="'👉 Use CLASS when you want to create objects with logic and methods. 
+    👉 Use INTERFACE when you only need a structure for type safety (like API responses).'">
+  </app-heading>
+
+  <div class="row mt-3">
+    <!-- CLASS EXAMPLES -->
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-4 rounded-4 border-primary">
+        <h5 class="text-primary">🔹 Class Examples</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">1️⃣ <strong>Basic Class</strong> → {{ student1.name }} (Age: {{ student1.age }})</li>
+          <li class="list-group-item">2️⃣ <strong>Class with Constructor</strong> → {{ student2.name }} (Roll: {{ student2.rollNo }})</li>
+          <li class="list-group-item">3️⃣ <strong>Class with Method</strong> → {{ car.getDetails() }}</li>
+          <li class="list-group-item">4️⃣ <strong>Inheritance</strong> → {{ manager.getRole() }}</li>
+          <li class="list-group-item">5️⃣ <strong>Encapsulation</strong> → {{ bankAccount.getBalance() }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- INTERFACE EXAMPLES -->
+    <div class="col-md-6">
+      <div class="card shadow-lg p-3 mb-4 rounded-4 border-success">
+        <h5 class="text-success">🔹 Interface Examples</h5>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">6️⃣ <strong>Basic Interface</strong> → {{ employee.name }} works as {{ employee.position }}</li>
+          <li class="list-group-item">7️⃣ <strong>Optional Property</strong> → {{ product.name }} (Price: {{ product.price }})</li>
+          <li class="list-group-item">8️⃣ <strong>Readonly Property</strong> → ID: {{ order.id }}, Item: {{ order.item }}</li>
+          <li class="list-group-item">9️⃣ <strong>Interface Array</strong> → {{ users[0].username }}, {{ users[1].username }}</li>
+          <li class="list-group-item">🔟 <strong>Interface with Function</strong> → {{ calculator.add(5, 10) }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
