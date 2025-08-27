@@ -1,6 +1,8 @@
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Photo, Post } from '../model/class/Post';
+import { IPost } from '../model/interface/IPost';
 
 @Component({
   selector: 'app-getapi',
@@ -10,8 +12,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./getapi.component.css']
 })
 export class GetapiComponent {
-  postList: any[] = [];
-  photoList:any[] =[];
+  postList: IPost[] = [];
+  photoList:Photo[] =[];
 
   constructor(private http: HttpClient) {}
 
