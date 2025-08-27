@@ -1,0 +1,21 @@
+<div>
+    <app-heading [message]="'Signal'" [note]="'When singal value change it will automatically change the ui value no need zone.js  '"></app-heading>
+<div class="row">
+    <div class="col-3">
+        {{firstName()}}
+    </div>
+    <div class="col-3">
+        {{rollNo()}}
+    </div>
+
+</div>
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-primary p-1" (click)="changeName()">Change Name</button>
+    </div>
+    <div class="col-3">
+        {{rollNo()}}
+    </div>
+
+</div>
+</div>
