@@ -16,6 +16,7 @@ import { SignupComponent } from './signup/signup.component';
 import { authGuard } from './service/auth.guard';
 import { ClassInterfaceComponent } from './class-interface/class-interface.component';
 import { SignalComponent } from './signal/signal.component';
+import { NgrxComponent } from './ngrx/ngrx.component';
 
 
 export const routes: Routes = [
@@ -47,6 +48,7 @@ export const routes: Routes = [
           { path: 'viewchild', component: ViewchildComponent },
            { path: 'class-interface', component: ClassInterfaceComponent },
            { path: 'signal', component: SignalComponent },
+           { path: 'ngrx', component: NgrxComponent },
 
           { path: '', redirectTo: 'home', pathMatch: 'full' }
         ]

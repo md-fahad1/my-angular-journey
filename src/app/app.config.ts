@@ -4,12 +4,17 @@ import { provideClientHydration, withEventReplay } from '@angular/platform-brows
 import { provideHttpClient } from '@angular/common/http';
 
 import { routes } from './app.routes';
+import { provideStore } from '@ngrx/store';
+import { counterReducer } from './states/counter/counter.reducer';
+
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideHttpClient(),   // 👈 this must be here
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideStore({ counter: counterReducer })
+
   ]
 };
