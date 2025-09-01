@@ -23,6 +23,15 @@
             <li><a class="dropdown-item" routerLink="/forms/reactive-form">Reactive Form</a></li>
           </ul>
         </li>
+        <li class="nav-item  ml-5">
+  <a class="nav-link text-white position-relative">
+    <i class="bi bi-cart3 fs-5"></i>
+    <span class="ms-1">Cart</span>
+    <span class="badge bg-danger rounded-pill position-absolute top-1 start-100 translate-middle">
+      {{ count$ | async }}
+    </span>
+  </a>
+</li>
       </ul>
     </div>
     <button routerLink="/signup" class="btn btn-success">Register</button>

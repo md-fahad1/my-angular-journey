@@ -17,6 +17,7 @@ import { authGuard } from './service/auth.guard';
 import { ClassInterfaceComponent } from './class-interface/class-interface.component';
 import { SignalComponent } from './signal/signal.component';
 import { NgrxComponent } from './ngrx/ngrx.component';
+import { PipesComponent } from './pipes/pipes.component';
 
 
 export const routes: Routes = [
@@ -49,6 +50,7 @@ export const routes: Routes = [
            { path: 'class-interface', component: ClassInterfaceComponent },
            { path: 'signal', component: SignalComponent },
            { path: 'ngrx', component: NgrxComponent },
+           { path: 'pipes', component: PipesComponent },
 
           { path: '', redirectTo: 'home', pathMatch: 'full' }
         ]

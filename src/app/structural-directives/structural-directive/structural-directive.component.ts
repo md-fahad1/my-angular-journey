@@ -18,7 +18,7 @@ export class StructuralDirectiveComponent {
   isDiv1Visible: boolean = false;
   istoggle: boolean = false;
   num1: string = "";
-  num2: string = "";
+  num2: string = ""; 
   seletedOption: string = "";
 
   isLoggedIn: boolean = false;
