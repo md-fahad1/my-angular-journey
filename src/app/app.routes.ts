@@ -19,44 +19,52 @@ import { SignalComponent } from './signal/signal.component';
 import { NgrxComponent } from './ngrx/ngrx.component';
 import { PipesComponent } from './pipes/pipes.component';
 
-
 export const routes: Routes = [
   {
-    path: '', component: HomeComponent, children: [
+    path: '',
+    component: HomeComponent,
+    children: [
       {
         path: '',
         redirectTo: 'login',
-        pathMatch: 'full'
+        pathMatch: 'full',
       },
       {
         path: '',
         component: LayoutComponent,
         children: [
-          { path: 'login', component: LoginComponent },
-          { path: 'signup', component: SignupComponent },
+          // { path: 'login', component: LoginComponent },
+          // { path: 'signup', component: SignupComponent },
           { path: 'home', component: DataBindingComponent },
-          { path: 'data-binding', component: DataBindingComponent,
-            canActivate:[authGuard]
-           },
-          { path: 'structural-directive', component: StructuralDirectiveComponent },
-          { path: 'attribute-directive', component: AttributeDirectiveComponent },
+          {
+            path: 'data-binding',
+            component: DataBindingComponent,
+            canActivate: [authGuard],
+          },
+          {
+            path: 'structural-directive',
+            component: StructuralDirectiveComponent,
+          },
+          {
+            path: 'attribute-directive',
+            component: AttributeDirectiveComponent,
+          },
           { path: 'control-flow', component: ControlFlowStatementComponent },
           { path: 'forms/tamplate-form', component: TamplateFormComponent },
           { path: 'forms/reactive-form', component: ReactiveFormComponent },
           { path: 'getapi', component: GetapiComponent },
           { path: 'postapi', component: PostapiComponent },
           { path: 'ngtamplate', component: NgTamplatecomponentComponent },
-          { path: 'viewchild', component: ViewchildComponent },
-           { path: 'class-interface', component: ClassInterfaceComponent },
-           { path: 'signal', component: SignalComponent },
-           { path: 'ngrx', component: NgrxComponent },
-           { path: 'pipes', component: PipesComponent },
+          // { path: 'viewchild', component: ViewchildComponent },
+          // { path: 'class-interface', component: ClassInterfaceComponent },
+          // { path: 'signal', component: SignalComponent },
+          // { path: 'ngrx', component: NgrxComponent },
+          { path: 'pipes', component: PipesComponent },
 
-          { path: '', redirectTo: 'home', pathMatch: 'full' }
-        ]
-      }
-
-    ]
+          { path: '', redirectTo: 'home', pathMatch: 'full' },
+        ],
+      },
+    ],
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
