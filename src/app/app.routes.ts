@@ -33,8 +33,8 @@ export const routes: Routes = [
         path: '',
         component: LayoutComponent,
         children: [
-          // { path: 'login', component: LoginComponent },
-          // { path: 'signup', component: SignupComponent },
+          { path: 'login', component: LoginComponent },
+          { path: 'signup', component: SignupComponent },
           { path: 'home', component: DataBindingComponent },
           {
             path: 'data-binding',
@@ -55,10 +55,10 @@ export const routes: Routes = [
           { path: 'getapi', component: GetapiComponent },
           { path: 'postapi', component: PostapiComponent },
           { path: 'ngtamplate', component: NgTamplatecomponentComponent },
-          // { path: 'viewchild', component: ViewchildComponent },
-          // { path: 'class-interface', component: ClassInterfaceComponent },
-          // { path: 'signal', component: SignalComponent },
-          // { path: 'ngrx', component: NgrxComponent },
+          { path: 'viewchild', component: ViewchildComponent },
+          { path: 'class-interface', component: ClassInterfaceComponent },
+          { path: 'signal', component: SignalComponent },
+          { path: 'ngrx', component: NgrxComponent },
           { path: 'pipes', component: PipesComponent },
 
           { path: '', redirectTo: 'home', pathMatch: 'full' },
